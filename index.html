@@ -1,130 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NexafyreZ™ Official</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexafyreZ™ Official</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", sans-serif;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI,sans-serif;
+}
+body{
+  background:linear-gradient(135deg,#020617,#0a1a4f,#050b2e);
+  color:#e5e7eb;
+}
+a{text-decoration:none}
 
-    body {
-      background: linear-gradient(135deg, #020617, #0a1a4f, #050b2e);
-      color: #e5e7eb;
-    }
+/* HEADER */
+header{
+  text-align:center;
+  padding:70px 20px;
+}
+header h1{
+  font-size:3.2rem;
+  background:linear-gradient(90deg,#22c55e,#38bdf8);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:25px;
+  animation:glow 3s infinite alternate;
+}
+@keyframes glow{
+  from{filter:drop-shadow(0 0 10px #22c55e)}
+  to{filter:drop-shadow(0 0 25px #38bdf8)}
+}
 
-    a {
-      text-decoration: none;
-    }
+.btn{
+  display:inline-block;
+  padding:14px 30px;
+  margin:10px;
+  border-radius:30px;
+  font-weight:600;
+  transition:.3s;
+}
+.btn-green{
+  background:#22c55e;
+  color:#022c22;
+  box-shadow:0 0 20px rgba(34,197,94,.6);
+}
+.btn-green:hover{transform:scale(1.08)}
+.btn-blue{
+  background:#3b82f6;
+  color:#020617;
+  box-shadow:0 0 20px rgba(59,130,246,.6);
+}
+.btn-blue:hover{transform:scale(1.08)}
 
-    header {
-      text-align: center;
-      padding: 70px 20px;
-    }
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:50px 20px;
+}
+.bot-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
 
-    header h1 {
-      font-size: 3.2rem;
-      background: linear-gradient(90deg, #22c55e, #38bdf8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 25px;
-    }
+/* BOT CARD */
+.bot-box{
+  background:rgba(255,255,255,.06);
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+  position:relative;
+  overflow:hidden;
+}
+.bot-box::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,#38bdf830,transparent);
+  animation:shine 6s infinite;
+}
+@keyframes shine{
+  from{transform:translateX(-100%)}
+  to{transform:translateX(100%)}
+}
 
-    .btn {
-      display: inline-block;
-      padding: 14px 30px;
-      margin: 10px;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: 0.3s ease;
-    }
+.logo{
+  width:80px;
+  height:80px;
+  margin-bottom:10px;
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+  100%{transform:translateY(0)}
+}
 
-    .btn-green {
-      background: #22c55e;
-      color: #022c22;
-      box-shadow: 0 0 20px rgba(34,197,94,0.6);
-    }
+.status{
+  display:inline-block;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:.8rem;
+  margin-bottom:10px;
+}
+.online{
+  background:#22c55e;
+  color:#022c22;
+  box-shadow:0 0 15px #22c55e;
+}
+.offline{
+  background:#ef4444;
+  color:#450a0a;
+  box-shadow:0 0 15px #ef4444;
+}
 
-    .btn-green:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 40px rgba(34,197,94,1);
-    }
+.commands{
+  margin-top:15px;
+  background:rgba(0,0,0,.35);
+  padding:15px;
+  border-radius:12px;
+  font-size:.9rem;
+}
 
-    .btn-blue {
-      background: #3b82f6;
-      color: #020617;
-      box-shadow: 0 0 20px rgba(59,130,246,0.6);
-    }
-
-    .btn-blue:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 40px rgba(59,130,246,1);
-    }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 50px 20px;
-    }
-
-    .bot-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .bot-box {
-      background: rgba(255,255,255,0.06);
-      padding: 25px;
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-
-    .bot-box h2 {
-      font-size: 1.6rem;
-      margin: 10px 0;
-    }
-
-    .status {
-      display: inline-block;
-      padding: 6px 15px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      margin-bottom: 10px;
-    }
-
-    .online {
-      background: #22c55e;
-      color: #022c22;
-      box-shadow: 0 0 15px rgba(34,197,94,0.8);
-    }
-
-    .offline {
-      background: #ef4444;
-      color: #450a0a;
-      box-shadow: 0 0 15px rgba(239,68,68,0.8);
-    }
-
-    .commands {
-      margin-top: 15px;
-      background: rgba(0,0,0,0.35);
-      padding: 15px;
-      border-radius: 12px;
-      font-size: 0.9rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 0.85rem;
-      color: #94a3b8;
-    }
-  </style>
+footer{
+  text-align:center;
+  padding:30px;
+  color:#94a3b8;
+  font-size:.85rem;
+}
+</style>
 </head>
 
 <body>
@@ -144,89 +153,70 @@
 </header>
 
 <section>
-  <div class="bot-grid">
+<div class="bot-grid">
 
-    <!-- MAIN BOT -->
-    <div class="bot-box">
-      <span id="status-main" class="status offline">● Checking...</span>
-      <h2>NexafyreZ™</h2>
-      <p>Advanced moderation, antinuke, security & utility bot.</p>
-
-      <div class="commands">
-        <b>Commands:</b><br>
-        /help<br>
-        /enable antinuke<br>
-        /whitelist<br>
-        /setlink
-      </div>
-    </div>
-
-    <!-- MUSIC BOT -->
-    <div class="bot-box">
-      <span id="status-music" class="status offline">● Checking...</span>
-      <h2>NexafyreZ Music™</h2>
-      <p>High quality music bot with filters & playlists.</p>
-
-      <a class="btn btn-green"
-         href="https://discord.com/oauth2/authorize?client_id=1456683611863384105">
-         Invite Music Bot
-      </a>
-
-      <div class="commands">
-        <b>Commands:</b><br>
-        /play<br>
-        /pause<br>
-        /skip<br>
-        /queue
-      </div>
-    </div>
-
+<!-- MAIN BOT -->
+<div class="bot-box">
+  <img src="logo.png" class="logo">
+  <span id="status-main" class="status offline">● Checking...</span>
+  <h2>NexafyreZ™</h2>
+  <p>Advanced moderation, antinuke & protection bot.</p>
+  <div class="commands">
+    <b>Commands:</b><br>
+    /help<br>/enable antinuke<br>/whitelist<br>/setlink
   </div>
+</div>
+
+<!-- MUSIC BOT -->
+<div class="bot-box">
+  <img src="logo.png" class="logo">
+  <span id="status-music" class="status offline">● Checking...</span>
+  <h2>NexafyreZ Music™</h2>
+  <p>High quality music with filters & playlists.</p>
+
+  <a class="btn btn-green"
+     href="https://discord.com/oauth2/authorize?client_id=1456683611863384105">
+     Invite Music Bot
+  </a>
+
+  <a class="btn btn-blue"
+     href="https://discord.gg/M3A3ztHSZm">
+     Join Server
+  </a>
+
+  <div class="commands">
+    <b>Commands:</b><br>
+    /play<br>/pause<br>/skip<br>/queue
+  </div>
+</div>
+
+</div>
 </section>
 
-<footer>
-  © 2026 NexafyreZ™ | All Rights Reserved
-</footer>
+<footer>© 2026 NexafyreZ™ | All Rights Reserved</footer>
 
 <script>
-/*
-  IMPORTANT STEP:
-  Discord Server Settings → Widget → ENABLE
-  Then paste your SERVER ID below
-*/
-
-const SERVER_ID = "PUT_YOUR_SERVER_ID_HERE";
+/* Enable Discord Widget in server settings */
+const SERVER_ID = "PUT_YOUR_SERVER_ID";
 
 fetch(`https://discord.com/api/guilds/${SERVER_ID}/widget.json`)
-  .then(res => res.json())
-  .then(data => {
-    const members = data.members || [];
+.then(r=>r.json())
+.then(d=>{
+ const m=d.members||[];
+ set("status-main",m.find(x=>x.id==="1451965118073143437"));
+ set("status-music",m.find(x=>x.id==="1456683611863384105"));
+})
+.catch(()=>{off("status-main");off("status-music");});
 
-    const mainBot = members.find(m => m.id === "1451965118073143437");
-    const musicBot = members.find(m => m.id === "1456683611863384105");
-
-    setStatus("status-main", mainBot);
-    setStatus("status-music", musicBot);
-  })
-  .catch(() => {
-    setOffline("status-main");
-    setOffline("status-music");
-  });
-
-function setStatus(id, bot) {
-  const el = document.getElementById(id);
-  if (bot) {
-    el.className = "status online";
-    el.innerText = "● Online";
-  } else {
-    setOffline(id);
-  }
+function set(id,b){
+ const e=document.getElementById(id);
+ if(b){e.className="status online";e.innerText="● Online";}
+ else off(id);
 }
-
-function setOffline(id) {
-  const el = document.getElementById(id);
-  el.className = "status offline";
-  el.innerText = "● Offline";
+function off(id){
+ const e=document.getElementById(id);
+ e.className="status offline";
+ e.innerText="● Offline";
 }
 </script>
 
