@@ -3,220 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NexafyreZ™ Official</title>
+<title>NexafyreZ Login</title>
 
 <style>
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Segoe UI,sans-serif;
+  font-family:'Segoe UI', Arial, sans-serif;
 }
-body{
-  background:linear-gradient(135deg,#020617,#0a1a4f,#050b2e);
-  color:#e5e7eb;
-}
-a{text-decoration:none}
 
-/* HEADER */
-header{
-  text-align:center;
-  padding:70px 20px;
+/* ===== ANIMATED BLUE BACKGROUND ===== */
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(-45deg,#000428,#004e92,#0077ff,#00c6ff);
+  background-size:400% 400%;
+  animation:bgMove 10s ease infinite;
 }
-header h1{
-  font-size:3.2rem;
-  background:linear-gradient(90deg,#22c55e,#38bdf8);
+
+/* ===== LOGIN BOX ===== */
+.login-box{
+  width:100%;
+  max-width:420px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(16px);
+  padding:40px 30px;
+  border-radius:26px;
+  box-shadow:0 0 50px rgba(0,180,255,0.8);
+  text-align:center;
+  animation:fadeIn 1s ease;
+}
+
+/* TITLE */
+.login-box h1{
+  font-size:2.5em;
+  margin-bottom:8px;
+  background:linear-gradient(90deg,#00c6ff,#00e5ff,#009dff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
+  text-shadow:0 0 25px rgba(0,198,255,1);
+}
+
+.login-box p{
+  opacity:0.7;
   margin-bottom:25px;
-  animation:glow 3s infinite alternate;
-}
-@keyframes glow{
-  from{filter:drop-shadow(0 0 10px #22c55e)}
-  to{filter:drop-shadow(0 0 25px #38bdf8)}
 }
 
-.btn{
-  display:inline-block;
-  padding:14px 30px;
-  margin:10px;
-  border-radius:30px;
-  font-weight:600;
-  transition:.3s;
-}
-.btn-green{
-  background:#22c55e;
-  color:#022c22;
-  box-shadow:0 0 20px rgba(34,197,94,.6);
-}
-.btn-green:hover{transform:scale(1.08)}
-.btn-blue{
-  background:#3b82f6;
-  color:#020617;
-  box-shadow:0 0 20px rgba(59,130,246,.6);
-}
-.btn-blue:hover{transform:scale(1.08)}
-
-section{
-  max-width:1100px;
-  margin:auto;
-  padding:50px 20px;
-}
-.bot-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
+/* INPUTS */
+.input{
+  width:100%;
+  padding:14px 16px;
+  margin-bottom:18px;
+  border:none;
+  outline:none;
+  border-radius:14px;
+  font-size:1em;
 }
 
-/* BOT CARD */
-.bot-box{
-  background:rgba(255,255,255,.06);
-  padding:25px;
-  border-radius:18px;
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
+/* ===== LOGIN BUTTON ===== */
+.login-btn{
   position:relative;
-  overflow:hidden;
-}
-.bot-box::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,transparent,#38bdf830,transparent);
-  animation:shine 6s infinite;
-}
-@keyframes shine{
-  from{transform:translateX(-100%)}
-  to{transform:translateX(100%)}
-}
-
-.logo{
-  width:80px;
-  height:80px;
-  margin-bottom:10px;
-  animation:float 4s ease-in-out infinite;
-}
-@keyframes float{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
-  100%{transform:translateY(0)}
-}
-
-.status{
-  display:inline-block;
-  padding:6px 14px;
-  border-radius:20px;
-  font-size:.8rem;
-  margin-bottom:10px;
-}
-.online{
-  background:#22c55e;
-  color:#022c22;
-  box-shadow:0 0 15px #22c55e;
-}
-.offline{
-  background:#ef4444;
-  color:#450a0a;
-  box-shadow:0 0 15px #ef4444;
-}
-
-.commands{
-  margin-top:15px;
-  background:rgba(0,0,0,.35);
+  width:100%;
   padding:15px;
-  border-radius:12px;
-  font-size:.9rem;
+  font-size:1.2em;
+  border:none;
+  border-radius:18px;
+  cursor:pointer;
+  color:white;
+  background:linear-gradient(135deg,#00c6ff,#0077ff);
+  box-shadow:0 0 30px rgba(0,198,255,1);
+  overflow:hidden;
+  transition:0.3s;
 }
 
-footer{
-  text-align:center;
-  padding:30px;
-  color:#94a3b8;
-  font-size:.85rem;
+/* SHINE ANIMATION */
+.login-btn::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.6),transparent);
+}
+
+.login-btn:hover{
+  transform:scale(1.07);
+}
+
+.login-btn:active{
+  transform:scale(1.12);
+  box-shadow:0 0 55px rgba(0,198,255,1);
+}
+
+.login-btn.animate::before{
+  animation:shine 0.8s linear;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes bgMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes shine{
+  from{left:-100%;}
+  to{left:100%;}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>NexafyreZ™</h1>
+<div class="login-box">
+  <h1>NexafyreZ</h1>
+  <p>Secure Login</p>
 
-  <a class="btn btn-green"
-     href="https://discord.com/oauth2/authorize?client_id=1451965118073143437">
-     Invite NexafyreZ™
-  </a>
+  <input class="input" type="text" placeholder="Username">
+  <input class="input" type="password" placeholder="Password">
 
-  <a class="btn btn-blue"
-     href="https://discord.gg/M3A3ztHSZm">
-     Join Our Server
-  </a>
-</header>
-
-<section>
-<div class="bot-grid">
-
-<!-- MAIN BOT -->
-<div class="bot-box">
-  <img src="logo.png" class="logo">
-  <span id="status-main" class="status offline">● Checking...</span>
-  <h2>NexafyreZ™</h2>
-  <p>Advanced moderation, antinuke & protection bot.</p>
-  <div class="commands">
-    <b>Commands:</b><br>
-    /help<br>/enable antinuke<br>/whitelist<br>/setlink
-  </div>
+  <button class="login-btn" onclick="loginAnim(this)">Login</button>
 </div>
-
-<!-- MUSIC BOT -->
-<div class="bot-box">
-  <img src="logo.png" class="logo">
-  <span id="status-music" class="status offline">● Checking...</span>
-  <h2>NexafyreZ Music™</h2>
-  <p>High quality music with filters & playlists.</p>
-
-  <a class="btn btn-green"
-     href="https://discord.com/oauth2/authorize?client_id=1456683611863384105">
-     Invite Music Bot
-  </a>
-
-  <a class="btn btn-blue"
-     href="https://discord.gg/M3A3ztHSZm">
-     Join Server
-  </a>
-
-  <div class="commands">
-    <b>Commands:</b><br>
-    /play<br>/pause<br>/skip<br>/queue
-  </div>
-</div>
-
-</div>
-</section>
-
-<footer>© 2026 NexafyreZ™ | All Rights Reserved</footer>
 
 <script>
-/* Enable Discord Widget in server settings */
-const SERVER_ID = "PUT_YOUR_SERVER_ID";
+function loginAnim(btn){
+  btn.classList.remove("animate");
+  void btn.offsetWidth; // reset animation
+  btn.classList.add("animate");
 
-fetch(`https://discord.com/api/guilds/${SERVER_ID}/widget.json`)
-.then(r=>r.json())
-.then(d=>{
- const m=d.members||[];
- set("status-main",m.find(x=>x.id==="1451965118073143437"));
- set("status-music",m.find(x=>x.id==="1456683611863384105"));
-})
-.catch(()=>{off("status-main");off("status-music");});
-
-function set(id,b){
- const e=document.getElementById(id);
- if(b){e.className="status online";e.innerText="● Online";}
- else off(id);
-}
-function off(id){
- const e=document.getElementById(id);
- e.className="status offline";
- e.innerText="● Offline";
+  // yahan baad me tum redirect / login logic add kar sakte ho
 }
 </script>
 
